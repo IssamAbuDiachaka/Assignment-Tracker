@@ -3,18 +3,18 @@ import type { Assignment } from './types';
 import { Priority } from './types';
 
 export const PRIORITY_COLORS: Record<Priority, { base: string; background: string }> = {
-  [Priority.High]: { base: 'text-red-600', background: 'bg-red-100' },
-  [Priority.Medium]: { base: 'text-yellow-600', background: 'bg-yellow-100' },
-  [Priority.Low]: { base: 'text-green-600', background: 'bg-green-100' },
+  [Priority.High]: { base: 'text-rose-600 dark:text-rose-400', background: 'bg-rose-100 dark:bg-rose-900' },
+  [Priority.Medium]: { base: 'text-amber-600 dark:text-amber-400', background: 'bg-amber-100 dark:bg-amber-900' },
+  [Priority.Low]: { base: 'text-emerald-600 dark:text-emerald-400', background: 'bg-emerald-100 dark:bg-emerald-900' },
 };
 
 export const SUBJECT_COLORS: Record<string, { base: string; background: string }> = {
-  'Mathematics': { base: 'text-blue-600', background: 'bg-blue-100' },
-  'Science': { base: 'text-teal-600', background: 'bg-teal-100' },
-  'History': { base: 'text-orange-600', background: 'bg-orange-100' },
-  'English': { base: 'text-purple-600', background: 'bg-purple-100' },
-  'Art': { base: 'text-pink-600', background: 'bg-pink-100' },
-  'Computer Science': { base: 'text-indigo-600', background: 'bg-indigo-100' },
+  'Mathematics': { base: 'text-blue-600 dark:text-blue-400', background: 'bg-blue-100 dark:bg-blue-900' },
+  'Science': { base: 'text-teal-600 dark:text-teal-400', background: 'bg-teal-100 dark:bg-teal-900' },
+  'History': { base: 'text-amber-600 dark:text-amber-400', background: 'bg-amber-100 dark:bg-amber-900' },
+  'English': { base: 'text-purple-600 dark:text-purple-400', background: 'bg-purple-100 dark:bg-purple-900' },
+  'Art': { base: 'text-rose-600 dark:text-rose-400', background: 'bg-rose-100 dark:bg-rose-900' },
+  'Computer Science': { base: 'text-emerald-600 dark:text-emerald-400', background: 'bg-emerald-100 dark:bg-emerald-900' },
 };
 
 export const AVAILABLE_SUBJECTS = Object.keys(SUBJECT_COLORS);

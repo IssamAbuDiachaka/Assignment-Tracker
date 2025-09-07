@@ -56,48 +56,49 @@ const Analytics: React.FC<AnalyticsProps> = ({ assignments }) => {
   ).length;
 
   const kpiData = [
-    { title: 'Total Assignments', value: totalAssignments, color: 'text-brand-primary' },
-    { title: 'Completed Tasks', value: totalCompleted, color: 'text-brand-secondary' },
-    { title: 'Overdue Items', value: overdueAssignments, color: 'text-brand-danger' },
+    { title: 'Total Assignments', value: totalAssignments, color: 'text-indigo-600 dark:text-indigo-400' },
+    { title: 'Completed Tasks', value: totalCompleted, color: 'text-emerald-600 dark:text-emerald-400' },
+    { title: 'Overdue Items', value: overdueAssignments, color: 'text-rose-600 dark:text-rose-400' },
     {
       title: 'Completion Rate',
       value: `${totalAssignments > 0 ? ((totalCompleted / totalAssignments) * 100).toFixed(0) : 0}%`,
-      color: 'text-brand-accent'
+      color: 'text-amber-600 dark:text-amber-400'
     },
   ];
 
   return (
-    <div className="p-4 sm:p-6 md:p-8 space-y-8">
-      <h1 className="text-3xl font-bold text-brand-text-primary">Analytics</h1>
+    <div className="p-6 md:p-8 lg:p-10 space-y-10">
+      <h1 className="text-3xl font-bold text-soft-dark dark:text-slate-200">Analytics</h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {kpiData.map(kpi => (
-          <div key={kpi.title} className="bg-white rounded-2xl p-6 shadow-soft">
-            <p className="text-sm font-medium text-brand-text-secondary">{kpi.title}</p>
+          <div key={kpi.title} className="bg-card dark:bg-slate-800 rounded-2xl p-6 shadow-soft hover-lift transition-all duration-200">
+            <p className="text-sm font-medium text-soft-secondary dark:text-slate-400">{kpi.title}</p>
             <p className={`text-4xl font-bold mt-2 ${kpi.color}`}>{kpi.value}</p>
           </div>
         ))}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        <div className="lg:col-span-3 bg-white rounded-2xl p-6 shadow-soft">
-          <h2 className="text-xl font-bold text-brand-text-primary mb-4">Weekly Completion Trend</h2>
+        <div className="lg:col-span-3 bg-card dark:bg-slate-800 rounded-2xl p-6 shadow-soft hover-lift transition-all duration-200">
+          <h2 className="text-xl font-bold text-soft-dark dark:text-slate-200 mb-6">Weekly Completion Trend</h2>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={completionTrendData}>
-              <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="week" tick={{ fill: '#6b7280', fontSize: 12 }} />
-              <YAxis tick={{ fill: '#6b7280', fontSize: 12 }} allowDecimals={false} />
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
+              <XAxis dataKey="week" tick={{ fill: '#64748b', fontSize: 12 }} />
+              <YAxis tick={{ fill: '#64748b', fontSize: 12 }} allowDecimals={false} />
               <Tooltip
                 contentStyle={{
-                  background: 'white',
-                  border: '1px solid #e5e7eb',
+                  background: 'var(--bg-card)',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '0.75rem',
+                  color: 'var(--text-primary)',
                 }}
               />
-              <Legend wrapperStyle={{ fontSize: '14px', paddingTop: '20px' }} />
+              <Legend wrapperStyle={{ fontSize: '14px', paddingTop: '20px', color: 'var(--text-primary)' }} />
               <Bar
                 dataKey="completed"
-                fill="#4f46e5"
+                fill="#6366f1"
                 name="Assignments Completed"
                 barSize={30}
                 radius={[8, 8, 0, 0]}
@@ -105,8 +106,8 @@ const Analytics: React.FC<AnalyticsProps> = ({ assignments }) => {
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="lg:col-span-2 bg-white rounded-2xl p-6 shadow-soft">
-          <h2 className="text-xl font-bold text-brand-text-primary mb-4">Subject Distribution</h2>
+        <div className="lg:col-span-2 bg-card dark:bg-slate-800 rounded-2xl p-6 shadow-soft hover-lift transition-all duration-200">
+          <h2 className="text-xl font-bold text-soft-dark dark:text-slate-200 mb-6">Subject Distribution</h2>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -128,12 +129,13 @@ const Analytics: React.FC<AnalyticsProps> = ({ assignments }) => {
               </Pie>
               <Tooltip
                 contentStyle={{
-                  background: 'white',
-                  border: '1px solid #e5e7eb',
+                  background: 'var(--bg-card)',
+                  border: '1px solid #e2e8f0',
                   borderRadius: '0.75rem',
+                  color: 'var(--text-primary)',
                 }}
               />
-              <Legend iconSize={10} wrapperStyle={{ fontSize: '14px' }} />
+              <Legend iconSize={10} wrapperStyle={{ fontSize: '14px', color: 'var(--text-primary)' }} />
             </PieChart>
           </ResponsiveContainer>
         </div>

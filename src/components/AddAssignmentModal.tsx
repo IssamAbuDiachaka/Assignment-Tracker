@@ -60,61 +60,61 @@ const AddAssignmentModal: React.FC<AddAssignmentModalProps> = ({ isOpen, onClose
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-4">
-      <div className="bg-white rounded-3xl shadow-soft-lg w-full max-w-2xl p-8 transform transition-all" onClick={e => e.stopPropagation()}>
-        <h2 className="text-2xl font-bold text-brand-text-primary mb-6">New Assignment</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="bg-card dark:bg-slate-800 rounded-2xl shadow-soft-xl w-full max-w-2xl p-8 transform transition-all duration-200" onClick={e => e.stopPropagation()}>
+        <h2 className="text-2xl font-bold text-soft-dark dark:text-slate-200 mb-6">New Assignment</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="title" className="block text-sm font-medium text-brand-text-secondary">Title</label>
-            <input type="text" id="title" value={title} onChange={e => setTitle(e.target.value)} className="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none" required />
+            <label htmlFor="title" className="block text-sm font-medium text-soft-secondary dark:text-slate-400 mb-2">Title</label>
+            <input type="text" id="title" value={title} onChange={e => setTitle(e.target.value)} className="block w-full px-4 py-3 bg-soft-gray dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 outline-none transition-all duration-200 text-soft-dark dark:text-slate-200" required />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-brand-text-secondary">Subject</label>
-              <select id="subject" value={subject} onChange={e => setSubject(e.target.value)} className="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none">
+              <label htmlFor="subject" className="block text-sm font-medium text-soft-secondary dark:text-slate-400 mb-2">Subject</label>
+              <select id="subject" value={subject} onChange={e => setSubject(e.target.value)} className="block w-full px-4 py-3 bg-soft-gray dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 outline-none transition-all duration-200 text-soft-dark dark:text-slate-200">
                 {AVAILABLE_SUBJECTS.map(s => <option key={s} value={s}>{s}</option>)}
               </select>
             </div>
             <div>
-              <label htmlFor="dueDate" className="block text-sm font-medium text-brand-text-secondary">Due Date</label>
-              <input type="date" id="dueDate" value={dueDate} onChange={e => setDueDate(e.target.value)} className="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none" required />
+              <label htmlFor="dueDate" className="block text-sm font-medium text-soft-secondary dark:text-slate-400 mb-2">Due Date</label>
+              <input type="date" id="dueDate" value={dueDate} onChange={e => setDueDate(e.target.value)} className="block w-full px-4 py-3 bg-soft-gray dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 outline-none transition-all duration-200 text-soft-dark dark:text-slate-200" required />
             </div>
           </div>
           <div>
-            <label className="block text-sm font-medium text-brand-text-secondary">Priority</label>
-            <div className="mt-2 flex space-x-2">
+            <label className="block text-sm font-medium text-soft-secondary dark:text-slate-400 mb-3">Priority</label>
+            <div className="flex space-x-3">
               {(Object.values(Priority)).map(p => (
-                <button type="button" key={p} onClick={() => setPriority(p)} className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${priority === p ? 'bg-brand-primary text-white scale-105' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
+                <button type="button" key={p} onClick={() => setPriority(p)} className={`px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${priority === p ? 'bg-indigo-600 dark:bg-indigo-500 text-white shadow-soft' : 'bg-soft-gray dark:bg-slate-700 text-soft-secondary dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'}`}>
                   {p}
                 </button>
               ))}
             </div>
           </div>
           <div>
-            <label htmlFor="notes" className="block text-sm font-medium text-brand-text-secondary">Notes (optional)</label>
-            <textarea id="notes" value={notes} onChange={e => setNotes(e.target.value)} rows={3} className="mt-1 block w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none" />
+            <label htmlFor="notes" className="block text-sm font-medium text-soft-secondary dark:text-slate-400 mb-2">Notes (optional)</label>
+            <textarea id="notes" value={notes} onChange={e => setNotes(e.target.value)} rows={3} className="block w-full px-4 py-3 bg-soft-gray dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 outline-none transition-all duration-200 text-soft-dark dark:text-slate-200" />
           </div>
 
           <div>
-            <label htmlFor="subtask" className="block text-sm font-medium text-brand-text-secondary">Subtasks</label>
-            <div className="flex items-center mt-1">
-              <input type="text" id="subtask" value={currentSubtask} onChange={e => setCurrentSubtask(e.target.value)} placeholder="Add a subtask..." className="block w-full px-4 py-2 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-brand-primary outline-none" />
-              <button type="button" onClick={handleAddSubtask} className="ml-2 p-2 bg-brand-primary text-white rounded-full hover:bg-indigo-700 transition">
+            <label htmlFor="subtask" className="block text-sm font-medium text-soft-secondary dark:text-slate-400 mb-2">Subtasks</label>
+            <div className="flex items-center">
+              <input type="text" id="subtask" value={currentSubtask} onChange={e => setCurrentSubtask(e.target.value)} placeholder="Add a subtask..." className="block w-full px-4 py-3 bg-soft-gray dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 outline-none transition-all duration-200 text-soft-dark dark:text-slate-200" />
+              <button type="button" onClick={handleAddSubtask} className="ml-3 p-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all duration-200 shadow-soft">
                 <PlusIcon className="w-5 h-5" />
               </button>
             </div>
-            <ul className="mt-2 space-y-1">
+            <ul className="mt-3 space-y-2">
                 {subtasks.map((st, index) => (
-                    <li key={index} className="flex items-center justify-between bg-slate-50 p-2 rounded-lg">
-                        <span className="text-sm text-brand-text-secondary">{st.text}</span>
-                        <button type="button" onClick={() => handleRemoveSubtask(index)} className="text-red-500 hover:text-red-700 text-xs">Remove</button>
+                    <li key={index} className="flex items-center justify-between bg-soft-gray dark:bg-slate-700 p-3 rounded-xl shadow-soft">
+                        <span className="text-sm text-soft-secondary dark:text-slate-400">{st.text}</span>
+                        <button type="button" onClick={() => handleRemoveSubtask(index)} className="text-rose-500 dark:text-rose-400 hover:text-rose-600 dark:hover:text-rose-300 text-xs font-medium transition-colors duration-200">Remove</button>
                     </li>
                 ))}
             </ul>
           </div>
 
-          <div className="flex justify-end space-x-3 pt-4">
-            <button type="button" onClick={onClose} className="px-6 py-2 bg-slate-100 text-brand-text-secondary rounded-xl hover:bg-slate-200 transition font-medium">Cancel</button>
-            <button type="submit" className="px-6 py-2 bg-brand-primary text-white rounded-xl hover:bg-indigo-700 transition font-medium shadow-sm">Add Assignment</button>
+          <div className="flex justify-end space-x-4 pt-6">
+            <button type="button" onClick={onClose} className="px-6 py-3 bg-soft-gray dark:bg-slate-700 text-soft-secondary dark:text-slate-400 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-600 transition-all duration-200 font-medium">Cancel</button>
+            <button type="submit" className="px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all duration-200 font-medium shadow-soft">Add Assignment</button>
           </div>
         </form>
       </div>

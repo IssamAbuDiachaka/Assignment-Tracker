@@ -30,12 +30,12 @@ const Dashboard: React.FC<DashboardProps> = ({ assignments, onToggleSubtask, onT
     .slice(0, 5); // show last 5 completed
 
   const WelcomeHeader = () => (
-    <div className="bg-white rounded-2xl p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center shadow-soft">
+    <div className="bg-card dark:bg-slate-800 rounded-2xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center shadow-soft hover-lift transition-all duration-200">
         <div>
-            <h1 className="text-3xl font-bold text-brand-text-primary">Hello there!</h1>
-            <p className="mt-1 text-brand-text-secondary">You have {activeAssignments.length} active assignments. Keep up the great work!</p>
+            <h1 className="text-3xl font-bold text-soft-dark dark:text-slate-200">Hello there!</h1>
+            <p className="mt-2 text-soft-secondary dark:text-slate-400">You have {activeAssignments.length} active assignments. Keep up the great work!</p>
         </div>
-        <div className="mt-4 md:mt-0 bg-brand-primary-light text-brand-primary font-semibold px-4 py-2 rounded-xl text-sm">
+        <div className="mt-4 md:mt-0 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 font-semibold px-6 py-3 rounded-xl text-sm shadow-soft">
             {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
     </div>
@@ -44,13 +44,15 @@ const Dashboard: React.FC<DashboardProps> = ({ assignments, onToggleSubtask, onT
   const AssignmentSection: React.FC<{ title: string; assignments: Assignment[]; icon: React.ReactNode }> = ({ title, assignments: sectionAssignments, icon }) => {
     if (sectionAssignments.length === 0) return null;
     return (
-      <div>
-        <div className="flex items-center mb-4">
+      <div className="space-y-6">
+        <div className="flex items-center">
           {icon}
-          <h2 className="text-xl font-bold text-brand-text-primary ml-2">{title}</h2>
-          <span className="ml-2 bg-slate-200 text-slate-600 text-xs font-semibold px-2 py-0.5 rounded-full">{sectionAssignments.length}</span>
+          <h2 className="text-xl md:text-2xl font-bold text-soft-dark dark:text-slate-200 ml-3 tracking-tight">{title}</h2>
+          <span className="ml-3 bg-soft-gray dark:bg-slate-700 text-soft-secondary dark:text-slate-400 text-xs font-semibold px-3 py-1.5 rounded-full shadow-soft">
+            {sectionAssignments.length}
+          </span>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {sectionAssignments.map(assignment => (
             <AssignmentCard
               key={assignment.id}
@@ -65,32 +67,41 @@ const Dashboard: React.FC<DashboardProps> = ({ assignments, onToggleSubtask, onT
   };
   
   return (
-    <div className="p-4 sm:p-6 md:p-8 space-y-8">
+    <div className="p-6 md:p-8 lg:p-10 space-y-12">
       <WelcomeHeader />
 
-      <AssignmentSection 
-        title="Overdue" 
-        assignments={overdue} 
-        icon={<AlertTriangleIcon className="w-6 h-6 text-brand-danger" />}
-      />
+      <div className="space-y-8">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl md:text-3xl font-bold text-soft-dark dark:text-slate-200">Upcoming Assignments</h2>
+        </div>
 
-      <AssignmentSection 
-        title="Due Today" 
-        assignments={dueToday} 
-        icon={<ClockIcon className="w-6 h-6 text-brand-accent" />}
-      />
-      
-      <AssignmentSection 
-        title="Upcoming" 
-        assignments={upcoming} 
-        icon={<ClockIcon className="w-6 h-6 text-brand-primary" />}
-      />
+        <AssignmentSection 
+          title="Overdue" 
+          assignments={overdue} 
+          icon={<AlertTriangleIcon className="w-6 h-6 text-rose-500 dark:text-rose-400" />}
+        />
 
-       <AssignmentSection 
-        title="Recently Completed" 
-        assignments={completed} 
-        icon={<CheckCircleIcon className="w-6 h-6 text-brand-secondary" />}
-      />
+        <AssignmentSection 
+          title="Due Today" 
+          assignments={dueToday} 
+          icon={<ClockIcon className="w-6 h-6 text-amber-500 dark:text-amber-400" />}
+        />
+        
+        <AssignmentSection 
+          title="Upcoming" 
+          assignments={upcoming} 
+          icon={<ClockIcon className="w-6 h-6 text-indigo-500 dark:text-indigo-400" />}
+        />
+      </div>
+
+      <div className="space-y-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-soft-dark dark:text-slate-200">Recently Completed</h2>
+        <AssignmentSection 
+          title="Recently Completed" 
+          assignments={completed} 
+          icon={<CheckCircleIcon className="w-6 h-6 text-emerald-500 dark:text-emerald-400" />}
+        />
+      </div>
     </div>
   );
 };

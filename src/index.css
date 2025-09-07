@@ -1,1 +1,194 @@
 @import "tailwindcss";
+
+/* Custom CSS Variables for Clean Minimal Design */
+:root {
+  /* Light Mode Colors */
+  --bg-primary: #f8fafc; /* slate-50 - soft off-white */
+  --bg-secondary: #f1f5f9; /* slate-100 - light gray */
+  --bg-card: #ffffff; /* pure white for cards */
+  --bg-sidebar: #f8fafc; /* slate-50 */
+  
+  /* Text Colors */
+  --text-primary: #1e293b; /* slate-800 - low contrast dark */
+  --text-secondary: #64748b; /* slate-500 */
+  --text-muted: #94a3b8; /* slate-400 */
+  
+  /* Accent Colors - Muted Palette */
+  --accent-indigo: #6366f1; /* indigo-500 */
+  --accent-indigo-light: #e0e7ff; /* indigo-100 */
+  --accent-teal: #14b8a6; /* teal-500 */
+  --accent-teal-light: #ccfbf1; /* teal-100 */
+  --accent-amber: #f59e0b; /* amber-500 */
+  --accent-amber-light: #fef3c7; /* amber-100 */
+  --accent-rose: #f43f5e; /* rose-500 */
+  --accent-rose-light: #ffe4e6; /* rose-100 */
+  
+  /* Status Colors */
+  --success: #10b981; /* emerald-500 */
+  --success-light: #d1fae5; /* emerald-100 */
+  --warning: #f59e0b; /* amber-500 */
+  --warning-light: #fef3c7; /* amber-100 */
+  --danger: #ef4444; /* red-500 */
+  --danger-light: #fee2e2; /* red-100 */
+  
+  /* Shadows */
+  --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-soft-lg: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-soft-xl: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Dark Mode Colors */
+.dark {
+  --bg-primary: #0f172a; /* slate-900 */
+  --bg-secondary: #1e293b; /* slate-800 */
+  --bg-card: #1e293b; /* slate-800 */
+  --bg-sidebar: #0f172a; /* slate-900 */
+  
+  --text-primary: #e2e8f0; /* slate-200 - light desaturated */
+  --text-secondary: #94a3b8; /* slate-400 */
+  --text-muted: #64748b; /* slate-500 */
+  
+  /* Dark mode accent colors - slightly more saturated */
+  --accent-indigo: #818cf8; /* indigo-400 */
+  --accent-indigo-light: #312e81; /* indigo-900 */
+  --accent-teal: #2dd4bf; /* teal-400 */
+  --accent-teal-light: #134e4a; /* teal-900 */
+  --accent-amber: #fbbf24; /* amber-400 */
+  --accent-amber-light: #78350f; /* amber-900 */
+  --accent-rose: #fb7185; /* rose-400 */
+  --accent-rose-light: #881337; /* rose-900 */
+  
+  --success: #34d399; /* emerald-400 */
+  --success-light: #064e3b; /* emerald-900 */
+  --warning: #fbbf24; /* amber-400 */
+  --warning-light: #78350f; /* amber-900 */
+  --danger: #f87171; /* red-400 */
+  --danger-light: #7f1d1d; /* red-900 */
+  
+  /* Dark mode shadows */
+  --shadow-soft: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow-soft-lg: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-soft-xl: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+}
+
+/* Base Styles */
+* {
+  transition: all 200ms ease-in-out;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  line-height: 1.6;
+}
+
+/* Subtle academic background gradient */
+.bg-academic {
+  background-image: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+}
+.dark .bg-academic {
+  background-image: radial-gradient(1200px 800px at 10% 0%, #0b1227 0%, #0f172a 40%, #0f172a 100%);
+}
+
+/* Minimal switch control */
+.switch-track {
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: 9999px;
+  background-color: #e2e8f0;
+  position: relative;
+}
+.dark .switch-track {
+  background-color: #334155;
+}
+.switch-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background-color: #ffffff;
+  box-shadow: var(--shadow-soft);
+}
+.dark .switch-thumb {
+  background-color: #e2e8f0;
+}
+.switch-on .switch-thumb {
+  transform: translateX(1.5rem);
+}
+
+/* Custom Utility Classes */
+.bg-soft-white {
+  background-color: var(--bg-primary);
+}
+
+.bg-soft-gray {
+  background-color: var(--bg-secondary);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
+
+.text-soft-dark {
+  color: var(--text-primary);
+}
+
+.text-soft-secondary {
+  color: var(--text-secondary);
+}
+
+.text-soft-muted {
+  color: var(--text-muted);
+}
+
+.shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+.shadow-soft-lg {
+  box-shadow: var(--shadow-soft-lg);
+}
+
+.shadow-soft-xl {
+  box-shadow: var(--shadow-soft-xl);
+}
+
+/* Hover States */
+.hover-lift {
+  transition: all 200ms ease-in-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft-lg);
+}
+
+.hover-tint {
+  transition: all 200ms ease-in-out;
+}
+
+.hover-tint:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
