@@ -25,10 +25,10 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, onAddAssig
     {isOpen && (
       <div onClick={onClose} className="lg:hidden fixed inset-0 bg-black/40 z-40" />
     )}
-    <aside className={`w-60 bg-soft-white dark:bg-slate-900 h-screen flex flex-col p-6 fixed top-0 left-0 border-r border-slate-200 dark:border-slate-700 shadow-soft-lg transition-all duration-200 z-50
+    <aside className={`w-60  dark:bg-blue-700 h-screen flex flex-col p-6 fixed top-0 left-0 border-r border-slate-200 dark:border-slate-700 shadow-soft-lg transition-all duration-200 z-50
       translate-x-0 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
       <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400 p-4 mb-8">
-        Academa
+        AcademaWQ
       </div>
       <nav className="flex-grow">
         <ul className="space-y-2">

@@ -30,12 +30,12 @@ const Dashboard: React.FC<DashboardProps> = ({ assignments, onToggleSubtask, onT
     .slice(0, 5); // show last 5 completed
 
   const WelcomeHeader = () => (
-    <div className="bg-card dark:bg-slate-800 rounded-2xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center shadow-soft hover-lift transition-all duration-200">
+    <div className=" dark:bg-blue-400 rounded-2xl p-8 flex flex-col md:flex-row justify-between items-start md:items-center shadow-soft hover-lift transition-all duration-200">
         <div>
             <h1 className="text-3xl font-bold text-soft-dark dark:text-slate-200">Hello there!</h1>
-            <p className="mt-2 text-soft-secondary dark:text-slate-400">You have {activeAssignments.length} active assignments. Keep up the great work!</p>
+            <p className="mt-2  dark:text-black-900 text-2xl">You have {activeAssignments.length} active assignments. Keep up the great work!</p>
         </div>
-        <div className="mt-4 md:mt-0 bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-400 font-semibold px-6 py-3 rounded-xl text-sm shadow-soft">
+        <div className="mt-4 md:mt-0 bg-indigo-100 dark:bg-blue-900 text-black-600 dark:text-indigo-400 font-semibold px-6 py-3 rounded text-sm shadow-soft">
             {new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
         </div>
     </div>
